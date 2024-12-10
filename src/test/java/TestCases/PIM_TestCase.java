@@ -49,5 +49,6 @@ public class PIM_TestCase extends BaseTest {
 
         PIM_page pimPage = new PIM_page(driver);
         pimPage.printEmployeeList();
+        lp.logout();
     }
 }
