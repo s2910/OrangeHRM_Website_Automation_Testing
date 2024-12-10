@@ -77,4 +77,28 @@ public class PIM_page {
         }
         System.out.println("\n"+"--------------------------------------------------");
     }
+
+    public void printEmployeeList(){
+
+        pim.click();
+        employeeList.click();
+
+        String totalRecords = element.get(0).getText();
+        System.out.println(totalRecords);
+
+        //Searching Employee By Name
+        for (int i=2;i< tableHeader.size();i++){
+            System.out.print(tableHeader.get(i).getText()+" | ");
+        }
+
+        System.out.println("\n"+"--------------------------------------------------");
+        for (int i=1;i<=totalRows.size();i++){
+            List<WebElement> colsContent = driver.findElements(By.xpath("//div[@class='oxd-table-card']["+ i + "]/div/div"));
+            for (int j = 1; j< totalCols.size(); j++){
+                System.out.print(colsContent.get(j).getText() +"     |   ");
+            }
+            System.out.println();
+        }
+        System.out.println("\n"+"--------------------------------------------------");
+    }
 }

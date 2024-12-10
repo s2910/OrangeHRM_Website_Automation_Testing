@@ -39,4 +39,15 @@ public class PIM_TestCase extends BaseTest {
         //Logout
         lp.logout();
     }
+
+    @Test(priority = 3)
+    void printEmployeeListTestCase(){
+        LoginPage lp = new LoginPage(driver);
+        String username = "Admin";
+        String password = "admin123";
+        lp.loginPortal(username,password);
+
+        PIM_page pimPage = new PIM_page(driver);
+        pimPage.printEmployeeList();
+    }
 }
